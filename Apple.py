@@ -1,4 +1,4 @@
-__author__ = 'jack'
+__author__ = 'Isak'
 import random
 
 
