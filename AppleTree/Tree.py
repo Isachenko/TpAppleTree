@@ -1,8 +1,8 @@
+from AppleTree.Apple import Apple
+
 __author__ = 'Isak'
 
 import random
-import Apple
-
 
 class Tree():
     def __init__(self):
@@ -17,7 +17,7 @@ class Tree():
         self.bloomed = False
         count = self.flowers
         for i in range(0, count):
-            self.apples.append(Apple.Apple())
+            self.apples.append(Apple())
         print("There are ", count, " apples on the tree")
 
     def shake(self):
@@ -34,4 +34,5 @@ class Tree():
         self.bloomed = True
         self.apples.clear()
         self.flowers = random.randint(1, 300)
+        print("rose ", self.flowers, " flowers")
 
