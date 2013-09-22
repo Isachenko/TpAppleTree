@@ -1,27 +1,37 @@
 __author__ = 'Isak'
 
-import random, Apple
+import random
+import Apple
 
 
 class Tree():
     def __init__(self):
         self.apples = []
+        self.flowers = 0
+        self.bloomed = False
 
     def grow(self):
-        r = random.randint(1, 300)
-        for i in range(0, r):
+        if not self.bloomed:
+            print("There are no flowers in Tree")
+            return
+        self.bloomed = False
+        count = self.flowers
+        for i in range(0, count):
             self.apples.append(Apple.Apple())
-        print("There are ", r, " apples on the tree")
+        print("There are ", count, " apples on the tree")
 
     def shake(self):
         r = random.randint(0, len(self.apples))
+        seedCount = 0
         for i in range(0, r):
-            self.apples.pop(0)
+            apple = self.apples.pop(0)
+            seedCount += apple.seedCount
         print(r, " apples fall down")
+        print(seedCount, " seeds fall down")
         print(len(self.apples), " still on the tree")
 
+    def bloom(self):
+        self.bloomed = True
+        self.apples.clear()
+        self.flowers = random.randint(1, 300)
 
-tree = Tree()
-tree.grow()
-tree.grow()
-tree.shake()
